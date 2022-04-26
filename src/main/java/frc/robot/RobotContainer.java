@@ -6,6 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.simulation.XboxControllerSim;
 import frc.robot.commands.PneumaticReverse;
 import frc.robot.commands.PneumaticsForward;
 import frc.robot.commands.PneumaticsOff;
@@ -23,6 +24,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final PneumaticSubsytem m_PneumaticSubsystem = new PneumaticSubsytem();
 
+  private XboxController m_controller = new XboxController(0);
   private final PneumaticsOff m_off = new PneumaticsOff(m_PneumaticSubsystem);
   private final PneumaticsForward m_forward = new PneumaticsForward(m_PneumaticSubsystem);
   private final PneumaticsToggle m_toggle = new PneumaticsToggle(m_PneumaticSubsystem);

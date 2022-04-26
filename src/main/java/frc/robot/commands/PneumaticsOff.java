@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 /** An example command that uses an example subsystem. */
 public class PneumaticsOff extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final PneumaticSubsytem m_pneumaticsubsystem;
+  private final PneumaticSubsytem m_pneumaticSubsystem;
 
   /**
    * Creates a new ExampleCommand.
@@ -18,7 +18,7 @@ public class PneumaticsOff extends CommandBase {
    * @param subsystem The subsystem used by this command.
    */
   public PneumaticsOff(PneumaticSubsytem subsystem) {
-    m_pneumaticsubsystem = subsystem;
+    m_pneumaticSubsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -30,7 +30,7 @@ public class PneumaticsOff extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_pneumaticsubsystem.off();
+    m_pneumaticSubsystem.off();
 
   }
 
