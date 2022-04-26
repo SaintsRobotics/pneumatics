@@ -3,7 +3,7 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
-
+import Constants.PnematicsConstants;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
@@ -19,8 +19,8 @@ public class PneumaticSubsytem extends SubsystemBase {
 
 
   public PneumaticSubsytem() {
-    pHCompressor = new Compressor(1, PneumaticsModuleType.REVPH);
-    solenoid0 = new DoubleSolenoid(9, PneumaticsModuleType.REVPH, 0, 1);
+    pHCompressor = new Compressor(PnematicsConstants.kCompressorModuleID, PneumaticsModuleType.REVPH);
+    solenoid0 = new DoubleSolenoid(PnematicsConstants.kSolenoidModuleType, PneumaticsModuleType.REVPH, PnematicsConstants.kIntakeLeftSolenoidPort, PnematicsConstants.kIntakeRightSolenoidPort);
 
   }
 
