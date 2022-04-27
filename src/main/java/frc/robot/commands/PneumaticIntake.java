@@ -31,10 +31,12 @@ public class PneumaticReverse extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if(out):
+    if(out){
       m_pneumaticSubsystem.reverse();
-    else:
+    }
+    else{
       m_pneumaticSubsystem.forward();
+    }
   }
 
   // Called once the command ends or is interrupted.
