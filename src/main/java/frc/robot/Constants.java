@@ -13,7 +13,7 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public static final PnematicsConstants {
+    public static final class PneumaticsConstants {
         public static final int kIntakeLeftSolenoidPort = 0;
         public static final int kIntakeRightSolenoidPort = 1;
         //TODO understand and maybe update vv

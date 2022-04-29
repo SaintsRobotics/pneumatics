@@ -6,18 +6,18 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.simulation.XboxControllerSim;
-import frc.robot.commands.PneumaticReverse;
-import frc.robot.commands.PneumaticsForward;
-import frc.robot.commands.PneumaticsOff;
-import frc.robot.commands.PneumaticsToggle;
-import frc.robot.subsystems.PneumaticSubsytem;
+import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.subsystems.PneumaticSubsytem;
 
 /**
- * This class is where the bulk of the robot should be declared. Since Command-based is a
- * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
- * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
+ * This class is where the bulk of the robot should be declared. Since
+ * Command-based is a
+ * "declarative" paradigm, very little robot logic should actually be handled in
+ * the {@link Robot}
+ * periodic methods (other than the scheduler calls). Instead, the structure of
+ * the robot (including
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
@@ -25,24 +25,29 @@ public class RobotContainer {
   private final PneumaticSubsytem m_PneumaticSubsystem = new PneumaticSubsytem();
 
   private XboxController m_controller = new XboxController(0);
-  private final PneumaticsOff m_off = new PneumaticsOff(m_PneumaticSubsystem);
-  private final PneumaticsForward m_forward = new PneumaticsForward(m_PneumaticSubsystem);
-  private final PneumaticsToggle m_toggle = new PneumaticsToggle(m_PneumaticSubsystem);
-  private final PneumaticReverse m_reverse = new PneumaticReverse(m_PneumaticSubsystem);
 
-  /** The container for the robot. Contains subsystems, OI devices, and commands. */
+  /**
+   * The container for the robot. Contains subsystems, OI devices, and commands.
+   */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
   }
 
   /**
-   * Use this method to define your button->command mappings. Buttons can be created by
+   * Use this method to define your button->command mappings. Buttons can be
+   * created by
    * instantiating a {@link GenericHID} or one of its subclasses ({@link
-   * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
+   * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing
+   * it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
+  private void configureButtonBindings() {
+    new JoystickButton(m_controller, Button.kA.value).whenPressed(m_PneumaticSubsystem::forward);
+    new JoystickButton(m_controller, Button.kB.value).whenPressed(m_PneumaticSubsystem::reverse);
+    new JoystickButton(m_controller, Button.kX.value).whenPressed(m_PneumaticSubsystem::off);
+    new JoystickButton(m_controller, Button.kY.value).whenPressed(m_PneumaticSubsystem::toggle);
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
