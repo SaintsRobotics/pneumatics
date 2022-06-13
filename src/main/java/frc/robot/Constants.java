@@ -16,8 +16,7 @@ public final class Constants {
     public static final class PneumaticsConstants {
         public static final int kIntakeLeftSolenoidPort = 0;
         public static final int kIntakeRightSolenoidPort = 1;
-        //TODO understand and maybe update vv
-        public static final int kSolenoidModuleType = 9; 
+        public static final int kCANBusID = 1; 
 
         public static final int kCompressorModuleID = 1;
     }

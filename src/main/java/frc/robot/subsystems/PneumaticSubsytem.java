@@ -22,7 +22,7 @@ public class PneumaticSubsytem extends SubsystemBase {
 
   public PneumaticSubsytem() {
     pHCompressor = new Compressor(PneumaticsConstants.kCompressorModuleID, PneumaticsModuleType.REVPH);
-    solenoid0 = new DoubleSolenoid(PneumaticsConstants.kSolenoidModuleType, PneumaticsModuleType.REVPH,
+    solenoid0 = new DoubleSolenoid(PneumaticsConstants.kCANBusID, PneumaticsModuleType.REVPH,
         PneumaticsConstants.kIntakeLeftSolenoidPort, PneumaticsConstants.kIntakeRightSolenoidPort);
 
   }
