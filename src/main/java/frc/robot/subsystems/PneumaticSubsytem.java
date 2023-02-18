@@ -30,7 +30,7 @@ public class PneumaticSubsytem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    SmartDashboard.putBoolean("enabled", pHCompressor.enabled());
+    SmartDashboard.putBoolean("enabled", pHCompressor.isEnabled());
     SmartDashboard.putBoolean("Pressure Switch", pHCompressor.getPressureSwitchValue());
     SmartDashboard.putNumber("Current", pHCompressor.getCurrent());
   }

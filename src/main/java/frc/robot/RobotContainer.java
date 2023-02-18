@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.PneumaticSubsytem;
 
@@ -43,10 +44,10 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    new JoystickButton(m_controller, Button.kA.value).whenPressed(m_PneumaticSubsystem::forward);
-    new JoystickButton(m_controller, Button.kB.value).whenPressed(m_PneumaticSubsystem::reverse);
-    new JoystickButton(m_controller, Button.kX.value).whenPressed(m_PneumaticSubsystem::off);
-    new JoystickButton(m_controller, Button.kY.value).whenPressed(m_PneumaticSubsystem::toggle);
+    new JoystickButton(m_controller, Button.kA.value).onTrue(new InstantCommand(m_PneumaticSubsystem::forward, m_PneumaticSubsystem));
+    new JoystickButton(m_controller, Button.kB.value).onTrue(new InstantCommand(m_PneumaticSubsystem::reverse, m_PneumaticSubsystem));
+    new JoystickButton(m_controller, Button.kX.value).onTrue(new InstantCommand(m_PneumaticSubsystem::off, m_PneumaticSubsystem));
+    new JoystickButton(m_controller, Button.kY.value).onTrue(new InstantCommand(m_PneumaticSubsystem::toggle, m_PneumaticSubsystem));
   }
 
   /**
